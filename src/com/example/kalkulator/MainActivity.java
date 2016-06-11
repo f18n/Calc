@@ -5,36 +5,57 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Spinner;
 
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity {
 	
-	Button btnbagi,btntambah,btnkali,btnkurang;
+	Button check;
 	EditText et1,et2,et3;
-	TextView jumlah;
+	Spinner sp;
 
+	String apa[] = {"+","-",":","x"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnbagi = (Button) findViewById(R.id.btnbagi);
-        btntambah = (Button) findViewById(R.id.btntambah);
-        btnkali = (Button) findViewById(R.id.btnkali);
-        btnkurang = (Button) findViewById(R.id.btnkurang);
-        
-        btnbagi.setOnClickListener(this);
-        btnkali.setOnClickListener(this);
-        btnkurang.setOnClickListener(this);
-        btntambah.setOnClickListener(this);
-        
+        check = (Button) findViewById(R.id.button1);
         et1 = (EditText) findViewById(R.id.editText1);
         et2 = (EditText) findViewById(R.id.editText2);
+        et3 = (EditText) findViewById(R.id.editText3);
+        sp = (Spinner) findViewById(R.id.spinner1);
         
-        jumlah = (TextView) findViewById(R.id.txthasil);
+		ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,apa);
+        sp.setAdapter(aa);
+        //add function
+        check.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				String a = et1.getText().toString();
+				String b = et2.getText().toString();
+				int value1 = Integer.parseInt(a);
+				int value2 = Integer.parseInt(b);
+				int aa = sp.getSelectedItemPosition();
+				switch(aa){
+				case 0:
+					et3.setText(Integer.toString(value1+value2));break;
+				case 1:
+					et3.setText(Integer.toString(value1-value2));break;
+				case 2:
+					et3.setText(Integer.toString(value1/value2));break;
+				case 3:
+					et3.setText(Integer.toString(value1*value2));break;
+					default:
+				}
+			}
+		});
+        
+        
     }
 
     @Override
@@ -55,28 +76,5 @@ public class MainActivity extends Activity implements OnClickListener {
         }
         return super.onOptionsItemSelected(item);
     }
-
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		int nilai1 = Integer.parseInt(et1.getText().toString());
-		int nilai2 = Integer.parseInt(et2.getText().toString());
-		switch (v.getId()) {
-		case R.id.btntambah:
-			jumlah.setText(Integer.toString(nilai1+nilai2));
-			break;
-		case R.id.btnkurang:
-			jumlah.setText(Integer.toString(nilai1-nilai2));
-			break;
-		case R.id.btnkali:
-			jumlah.setText(Integer.toString(nilai1*nilai2));
-			break;
-		case R.id.btnbagi:
-			jumlah.setText(Integer.toString(nilai1/nilai2));
-			break;
-		default:
-			break;
-	}
-		
-	}
+    
 }

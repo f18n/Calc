@@ -18,72 +18,49 @@
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/kalkulator"
-        android:layout_marginTop="44dp"
-        android:layout_toLeftOf="@+id/kalkulator"
+        android:layout_marginTop="48dp"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/kalkulator"
+        android:layout_alignTop="@+id/editText1"
+        android:layout_toRightOf="@+id/editText1" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spinner1"
+        android:layout_toRightOf="@+id/spinner1"
         android:inputType="number" >
 
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText1"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_alignLeft="@+id/kalkulator"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="32dp"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/txthasil"
+        android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/editText2"
         android:layout_centerVertical="true"
-        android:layout_marginTop="30dp"
-        android:text="@string/hasil_" />
+        android:enabled="false"
+        android:inputType="number" />
 
     <Button
-        android:id="@+id/btnbagi"
-        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/kalkulator"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/editText1"
-        android:text="@string/bagi" />
-
-    <Button
-        android:id="@+id/btntambah"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnbagi"
-        android:layout_alignLeft="@+id/btnbagi"
-        android:text="@string/tambah" />
-
-    <Button
-        android:id="@+id/btnkali"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btnbagi"
-        android:layout_alignBottom="@+id/btnbagi"
-        android:layout_toRightOf="@+id/txthasil"
-        android:text="@string/kali" />
-
-    <Button
-        android:id="@+id/btnkurang"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btntambah"
-        android:layout_toRightOf="@+id/kalkulator"
-        android:text="@string/kurang" />
+        android:layout_marginBottom="80dp"
+        android:text="@string/check" />
 
 </RelativeLayout>
